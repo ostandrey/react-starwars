@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, BrowserRouter as Router, Route} from "react-router-dom";
+import { Link, BrowserRouter as Router, Route, Switch, Redirect} from "react-router-dom";
 import './App.css';
 import StarshipList from "./components/starships/starship-list";
 import PlanetList from "./components/planets/planet-list";
@@ -23,10 +23,13 @@ const App = () => {
                 <Link to={'/starships'}>Starships</Link>
             </button>
         </div>
-            <Route exact path={'/'} component={StarshipList} />
-            <Route exact path={'/starships'} component={StarshipList} />
-            <Route exact path={'/planets'} component={PlanetList} />
-            <Route exact path={'/heroes'} component={HeroesList} />
+            <Switch>
+                <Route exact path={'/starships'} component={StarshipList} />
+                <Route exact path={'/planets'} component={PlanetList} />
+                <Route exact path={'/heroes'} component={HeroesList} />
+                <Redirect from='/' to='/starships'/>
+            </Switch>
+
         </Router>
     </div>
   );

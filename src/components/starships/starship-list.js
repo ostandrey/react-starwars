@@ -1,7 +1,10 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import StarshipItem from "./starship-item";
+import {getStarships} from "../../actions";
+import { connect } from 'react-redux'
 
-const StarshipList = () => {
+const StarshipList = ({getStarships}) => {
+    useEffect(() => getStarships());
     return (
         <div>
             <StarshipItem/>
@@ -9,4 +12,13 @@ const StarshipList = () => {
     )
 };
 
-export default StarshipList
+const mapDispatchToProps = (dispatch) => ({
+    getStarships: () => {
+        dispatch(getStarships())
+    }
+});
+
+export default connect(
+    null,
+    mapDispatchToProps
+)(StarshipList)
