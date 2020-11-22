@@ -1,10 +1,10 @@
 import React from 'react'
 
-const StarshipItem = () => {
+const StarshipItem = ({starship}) => {
     return (
-        <div>
-            <h2>Ship</h2>
-        </div>
+        <li>
+            <h2>{starship.name}</h2>
+        </li>
     )
 };
 

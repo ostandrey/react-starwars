@@ -13,14 +13,14 @@ export const getStarships = () => {
 
 const getStarshipsStarted = () => ({
     type: StarshipsActions.STARSHIPS_REQUEST
-})
+});
 
 const getStarshipsSuccess = (starships) => ({
     type: StarshipsActions.STARSHIPS_REQUEST_SUCCESS,
     payload: starships
-})
+});
 
 const getStarshipsError = (error) => ({
     type: StarshipsActions.STARSHIPS_REQUEST_ERROR,
     payload: error
-})
+});

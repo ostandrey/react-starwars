@@ -3,22 +3,37 @@ import StarshipItem from "./starship-item";
 import {getStarships} from "../../actions";
 import { connect } from 'react-redux'
 
-const StarshipList = ({getStarships}) => {
-    useEffect(() => getStarships());
+const StarshipList = ({starships, getStarships}) => {
+    useEffect(() => {
+        getStarships()
+    }, [getStarships]);
     return (
         <div>
-            <StarshipItem/>
+            <ul>
+                {
+                    starships.starships.map(starship =>
+                        <StarshipItem
+                            key={starship.name}
+                            starship={starship}
+                        />)
+                }
+            </ul>
         </div>
     )
 };
 
-const mapDispatchToProps = (dispatch) => ({
+const mapStateToProps = state => ({
+    starships: state.starships
+});
+
+
+const mapDispatchToProps = dispatch => ({
     getStarships: () => {
         dispatch(getStarships())
     }
 });
 
 export default connect(
-    null,
+    mapStateToProps,
     mapDispatchToProps
 )(StarshipList)
