@@ -1,9 +1,10 @@
 import React from 'react'
 
-const StarshipItem = ({starship}) => {
+const StarshipItem = () => {
+
     return (
         <li>
-            <h2>{starship.name}</h2>
+            <h2>hi</h2>
         </li>
     )
 };

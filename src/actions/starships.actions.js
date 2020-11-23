@@ -10,7 +10,6 @@ export const getStarships = () => {
     }
 };
 
-
 const getStarshipsStarted = () => ({
     type: StarshipsActions.STARSHIPS_REQUEST
 });

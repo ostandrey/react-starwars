@@ -1,9 +1,11 @@
 import React from 'react'
 import { Link, BrowserRouter as Router, Route, Switch, Redirect} from "react-router-dom";
 import './App.css';
-import StarshipList from "./components/starships/starship-list";
-import PlanetList from "./components/planets/planet-list";
+import StarshipsList from "./components/starships/starships-list";
+import PlanetsList from "./components/planets/planets-list";
 import HeroesList from "./components/heroes/heroes-list";
+import StarshipItem from "./components/starships/starship-item";
+import PlanetItem from "./components/planets/planet-item";
 
 const App = () => {
   return (
@@ -24,8 +26,10 @@ const App = () => {
             </button>
         </div>
             <Switch>
-                <Route exact path={'/starships'} component={StarshipList} />
-                <Route exact path={'/planets'} component={PlanetList} />
+                <Route exact path={'/starships'} component={StarshipsList} />
+                <Route exact path={'/starships/:name'} component={StarshipItem} />
+                <Route exact path={'/planets'} component={PlanetsList} />
+                <Route exact path={'/planets/:name'} component={PlanetItem} />
                 <Route exact path={'/heroes'} component={HeroesList} />
                 <Redirect from='/' to='/starships'/>
             </Switch>

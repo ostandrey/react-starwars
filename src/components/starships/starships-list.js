@@ -1,9 +1,9 @@
 import React, {useEffect} from 'react'
-import StarshipItem from "./starship-item";
+import StarshipListItem from "./starships-list-item";
 import {getStarships} from "../../actions";
 import { connect } from 'react-redux'
 
-const StarshipList = ({starships, getStarships}) => {
+const StarshipsList = ({starships, getStarships}) => {
     useEffect(() => {
         getStarships()
     }, [getStarships]);
@@ -12,7 +12,7 @@ const StarshipList = ({starships, getStarships}) => {
             <ul>
                 {
                     starships.starships.map(starship =>
-                        <StarshipItem
+                        <StarshipListItem
                             key={starship.name}
                             starship={starship}
                         />)
@@ -36,4 +36,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(StarshipList)
+)(StarshipsList)

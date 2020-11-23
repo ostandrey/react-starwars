@@ -1,8 +1,10 @@
 import { combineReducers } from "redux";
 import starships from "./starships.reducer";
+import planets from "./planets.reducer";
 
 const rootReducer = combineReducers({
-    starships
+    starships,
+    planets
 });
 
 export default rootReducer
