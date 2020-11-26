@@ -1,12 +1,23 @@
 import React from 'react'
+import {connect} from 'react-redux'
 
-const StarshipItem = () => {
-
+const StarshipItem = ({starship, state}) => {
+    console.log(state)
     return (
-        <li>
-            <h2>hi</h2>
-        </li>
+    <>{
+        starship.isLoading
+            ? <p>Loading</p>
+            : <li>
+                    <h2>{starship.starship.name}</h2>
+            </li>
+    }</>
+
     )
 };
 
-export default StarshipItem;
+const mapStateToProps = state => ({
+    starship: state.starship,
+    state
+});
+
+export default connect(mapStateToProps, null)(StarshipItem) ;

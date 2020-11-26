@@ -1,9 +1,9 @@
 import React, {useEffect} from 'react'
 import StarshipListItem from "./starships-list-item";
-import {getStarships} from "../../actions";
+import {getStarships, getStarship} from "../../actions";
 import { connect } from 'react-redux'
 
-const StarshipsList = ({starships, getStarships}) => {
+const StarshipsList = ({starships, getStarships, getStarship}) => {
     useEffect(() => {
         getStarships()
     }, [getStarships]);
@@ -12,10 +12,12 @@ const StarshipsList = ({starships, getStarships}) => {
             <ul>
                 {
                     starships.starships.map(starship =>
-                        <StarshipListItem
-                            key={starship.name}
-                            starship={starship}
-                        />)
+                        <li onClick={() => {getStarship(starship.url)}}>
+                            <StarshipListItem
+                                key={starship.name}
+                                starship={starship}
+                            />
+                        </li>)
                 }
             </ul>
         </div>
@@ -30,6 +32,9 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
     getStarships: () => {
         dispatch(getStarships())
+    },
+    getStarship: (url) => {
+        dispatch(getStarship(url))
     }
 });
 

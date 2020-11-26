@@ -5,9 +5,21 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: url("assets/star-wars-background.jpg") repeat;
+  animation: bgStars 50s infinite;
+  animation-timing-function: cubic-bezier(0.5, 0.5, 0.5, 0.5);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+@keyframes bgStars {
+  from {
+    background-position: 0;
+  }
+  to {
+    background-position: -1920px;
+  }
 }
