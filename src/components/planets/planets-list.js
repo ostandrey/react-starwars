@@ -1,9 +1,9 @@
 import React, {useEffect} from 'react'
 import {connect} from "react-redux";
-import {getPlanets} from "../../actions";
+import {getPlanet, getPlanets} from "../../actions";
 import PlanetsListItem from "./planets-list-item";
 
-const PlanetsList = ({planets, getPlanets}) => {
+const PlanetsList = ({planets, getPlanets, getPlanet}) => {
     useEffect(() => {
         getPlanets()
     }, [getPlanets]);
@@ -12,10 +12,13 @@ const PlanetsList = ({planets, getPlanets}) => {
             <ul>
                 {
                     planets.planets.map(planet =>
-                        <PlanetsListItem
-                            key={planet.name}
-                            planet={planet}
-                        />
+                        <li onClick={() => {getPlanet(planet.url)}}>
+                            <PlanetsListItem
+                                key={planet.name}
+                                planet={planet}
+                            />
+                        </li>
+
                     )
                 }
             </ul>
@@ -28,7 +31,10 @@ const mapStateToProps = state => ({
 });
 
 const mapDispathToProps =  dispatch => ({
-    getPlanets: () => dispatch(getPlanets())
+    getPlanets: () => dispatch(getPlanets()),
+    getPlanet: (url) => {
+        dispatch(getPlanet(url))
+    }
 });
 
 export default connect(

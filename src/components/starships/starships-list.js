@@ -17,7 +17,8 @@ const StarshipsList = ({starships, getStarships, getStarship}) => {
                                 key={starship.name}
                                 starship={starship}
                             />
-                        </li>)
+                        </li>
+                    )
                 }
             </ul>
         </div>

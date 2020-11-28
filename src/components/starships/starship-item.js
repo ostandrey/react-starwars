@@ -2,11 +2,12 @@ import React from 'react'
 import {connect} from 'react-redux'
 
 const StarshipItem = ({starship, state}) => {
-    console.log(state)
     return (
     <>{
         starship.isLoading
-            ? <p>Loading</p>
+            ? <div className="spinner-border" style={{width: "3rem", height: "3rem"}} role="status">
+                <span className="sr-only">Loading...</span>
+            </div>
             : <li>
                     <h2>{starship.starship.name}</h2>
             </li>
