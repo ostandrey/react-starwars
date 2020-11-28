@@ -4,6 +4,7 @@ import starship from "./starship.reducer"
 import planets from "./planets.reducer";
 import planet from "./planet.reducer"
 import heroes from "./heroes.reducer";
+import hero from "./hero.reducer"
 
 
 const rootReducer = combineReducers({
@@ -11,7 +12,8 @@ const rootReducer = combineReducers({
     starship,
     planets,
     planet,
-    heroes
+    heroes,
+    hero
 });
 
 export default rootReducer

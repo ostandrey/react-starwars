@@ -1,36 +1,36 @@
-import {StarshipActions} from "../constants";
+import {HeroActions} from "../constants";
 
 const initialState = {
     isLoading: false,
-    starship: {},
+    hero: {},
     error: null
 };
 
-const starshipReducer = (state = initialState, action) => {
+const heroReducer = (state = initialState, action) => {
     switch (action.type) {
-        case StarshipActions.STARSHIP_REQUEST:
+        case HeroActions.HERO_REQUEST:
             return {
                 ...state,
                 isLoading: true,
-                starship: {}
+                hero: {}
             };
-        case StarshipActions.STARSHIP_REQUEST_SUCCESS:
+        case HeroActions.HERO_REQUEST_SUCCESS:
             return {
                 ...state,
                 isLoading: false,
-                starship: action.payload,
+                hero: action.payload,
                 error: null
             };
-        case StarshipActions.STARSHIP_REQUEST_ERROR:
+        case HeroActions.HERO_REQUEST_ERROR:
             return {
                 ...state,
                 isLoading: false,
-                starship: {},
+                hero: {},
                 error: action.payload
             };
-        default:
-            return state
+        default: return state
     }
+
 };
 
-export default starshipReducer
+export default heroReducer

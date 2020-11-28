@@ -1,11 +1,23 @@
 import React from 'react'
+import {connect} from 'react-redux'
 
-const HeroesItem = () => {
+const HeroesItem = ({hero, state}) => {
     return (
-        <div>
-            <h2>Hero</h2>
-        </div>
+        <>{
+            hero.isLoading
+                ? <div className="spinner-border" style={{width: "3rem", height: "3rem"}} role="status">
+                    <span className="sr-only">Loading...</span>
+                </div>
+                : <li>
+                    <h2>{hero.hero.name}</h2>
+                </li>
+        }</>
     )
 };
 
-export default HeroesItem;
+const mapStateToProps = state => ({
+    hero: state.hero,
+    state
+});
+
+export default connect(mapStateToProps, null)(HeroesItem);
