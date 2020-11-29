@@ -3,9 +3,11 @@ import {Link} from "react-router-dom";
 
 const StarshipListItem = ({starship}) => {
     return (
-            <Link to={`/starships/${starship.name}`} className={"item-text"}>
+        <li>
+            <Link to={`/starships/${starship.name}`} className={"item-title"}>
                 {starship.name}
             </Link>
+        </li>
     )
 };
 

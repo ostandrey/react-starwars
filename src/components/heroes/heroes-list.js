@@ -8,21 +8,32 @@ const HeroesList = ({ heroes, getHeroes, getHero}) => {
         getHeroes()
     }, [getHeroes]);
     return (
-        <div>
-            <ul>
-                {
-                    heroes.heroes.map(hero =>
-                        <li onClick={() => {getHero(hero.url)}}>
-                            <HeroesListItem
-                                key={hero.name}
-                                hero={hero}
-                            />
-                        </li>
+        <>{
+            heroes.isLoading
+            ?
+                <div className="d-flex justify-content-center">
+                    <div className="spinner-border text-light" style={{width: "3rem", height: "3rem"}} role="status">
+                        <span className="sr-only">Loading...</span>
+                    </div>
+                </div>
+                :
+                <div>
+                    <ul>
+                        {
+                            heroes.heroes.map(hero =>
+                                <li onClick={() => {getHero(hero.url)}}>
+                                    <HeroesListItem
+                                        key={hero.name}
+                                        hero={hero}
+                                    />
+                                </li>
 
-                    )
-                }
-            </ul>
-        </div>
+                            )
+                        }
+                    </ul>
+                </div>
+        }</>
+
     )
 };
 

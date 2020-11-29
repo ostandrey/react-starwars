@@ -52,13 +52,16 @@ li:hover {
     border-radius: 3px;
 }
 
-.item-text {
+.item-title {
     width: 100%;
     color: #a5a5a5;
 }
 
-.item-text:hover {
+.item-title:hover {
     color: white;
 }
 
-
+.item-info {
+    color: white;
+    user-select: none;
+}

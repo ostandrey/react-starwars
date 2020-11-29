@@ -8,20 +8,30 @@ const StarshipsList = ({starships, getStarships, getStarship}) => {
         getStarships()
     }, [getStarships]);
     return (
-        <div>
-            <ul>
-                {
-                    starships.starships.map(starship =>
-                        <li onClick={() => {getStarship(starship.url)}}>
-                            <StarshipListItem
-                                key={starship.name}
-                                starship={starship}
-                            />
-                        </li>
-                    )
-                }
-            </ul>
-        </div>
+        <>{
+            starships.isLoading
+            ?
+                <div className="d-flex justify-content-center">
+                    <div className="spinner-border text-light" style={{width: "3rem", height: "3rem"}} role="status">
+                        <span className="sr-only">Loading...</span>
+                    </div>
+                </div>
+                :
+                <div>
+                    <ul>
+                        {
+                            starships.starships.map(starship =>
+                                <li onClick={() => {getStarship(starship.url)}}>
+                                    <StarshipListItem
+                                        key={starship.name}
+                                        starship={starship}
+                                    />
+                                </li>
+                            )
+                        }
+                    </ul>
+                </div>
+        }</>
     )
 };
 

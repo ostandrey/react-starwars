@@ -8,21 +8,31 @@ const PlanetsList = ({planets, getPlanets, getPlanet}) => {
         getPlanets()
     }, [getPlanets]);
     return (
-        <div>
-            <ul>
-                {
-                    planets.planets.map(planet =>
-                        <li onClick={() => {getPlanet(planet.url)}}>
-                            <PlanetsListItem
-                                key={planet.name}
-                                planet={planet}
-                            />
-                        </li>
+        <>{
+            planets.isLoading
+            ?
+                <div className="d-flex justify-content-center">
+                    <div className="spinner-border text-light" style={{width: "3rem", height: "3rem"}} role="status">
+                        <span className="sr-only">Loading...</span>
+                    </div>
+                </div>
+                :
+                <div>
+                    <ul>
+                        {
+                            planets.planets.map(planet =>
+                                <li onClick={() => {getPlanet(planet.url)}}>
+                                    <PlanetsListItem
+                                        key={planet.name}
+                                        planet={planet}
+                                    />
+                                </li>
 
-                    )
-                }
-            </ul>
-        </div>
+                            )
+                        }
+                    </ul>
+                </div>
+        }</>
     )
 };
 
