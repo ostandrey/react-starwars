@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
-const HeroesItem = ({hero, state}) => {
+const HeroItem = ({hero}) => {
     return (
         <>{
             hero.isLoading
@@ -28,8 +28,7 @@ const HeroesItem = ({hero, state}) => {
 };
 
 const mapStateToProps = state => ({
-    hero: state.hero,
-    state
+    hero: state.hero
 });
 
-export default connect(mapStateToProps, null)(HeroesItem);
+export default connect(mapStateToProps, null)(HeroItem);

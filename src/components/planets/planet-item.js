@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
-const PlanetItem = ({planet, state}) => {
+const PlanetItem = ({planet}) => {
     return (
         <>{
             planet.isLoading
@@ -32,8 +32,7 @@ const PlanetItem = ({planet, state}) => {
 };
 
 const mapStateToProps = state => ({
-    planet: state.planet,
-    state
+    planet: state.planet
 });
 
 export default connect(mapStateToProps, null)(PlanetItem);
